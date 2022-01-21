@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Tilesetter
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/1105890
+Icon=steam_icon_1105890
+Terminal=false
+Type=Application
+Categories=Game;
