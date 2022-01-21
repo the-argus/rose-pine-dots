@@ -45,3 +45,6 @@ zathura-pdf-poppler
 
 install the following gtk theme systemwide (usr/share/themes)
 [rosé pine gtk](https://github.com/rose-pine/gtk)
+
+slack theme:
+[slack](https://github.com/rose-pine/slack)
