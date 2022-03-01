@@ -26,9 +26,13 @@ duk ()
    sudo du -k "$@" | sort -n
 }
 
+function ytd () { youtube-dl -f bestvideo+bestaudio --merge-output-format mkv --all-subs --cookies ~/.scripts/youtube.com_cookies.txt "$1"; }
+
 eval "$(starship init bash)"
 
 alias matrix="tmatrix -c default -C yellow -s 60 -f 0.2,0.3 -g 10,20 -l 1,50 -t \"hello, argus.\""
+alias vim="nvim"
+alias cageff="cage \"/bin/firefox -p Unconfigured\""
 
 # alias ls='ls --color=auto'
 # PS1='[\u@\h \W]\$ '
@@ -56,3 +60,5 @@ if [ "$TERM" = "linux" ]; then
   # get rid of artifacts
   clear
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
