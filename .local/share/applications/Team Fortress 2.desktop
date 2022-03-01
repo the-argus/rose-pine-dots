@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Team Fortress 2
-Comment=Play this game on Steam
-Exec=steam steam://rungameid/440
-Icon=~/.local/share/applications/tf2.png
-Terminal=false
-Type=Application
-Categories=Game;
