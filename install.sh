@@ -25,3 +25,18 @@ cp -ri Wallpaper/* $WALLPAPER
 cp -ri Screenshots/* $SCREENSHOTS
 cp -ri Local/* $LOCAL
 cp -ri Icons/* $ICONS
+
+echo "COPYING UNGOOGLED CHROMIUM INFO TO ARCH PACMAN.CONF"
+
+curl -s 'https://download.opensuse.org/repositories/home:/ungoogled_chromium/Arch/x86_64/home_ungoogled_chromium_Arch.key' | sudo pacman-key -a -
+echo '
+[home_ungoogled_chromium_Arch]
+SigLevel = Required TrustAll
+Server = https://download.opensuse.org/repositories/home:/ungoogled_chromium/Arch/$arch' | sudo tee --append /etc/pacman.conf
+sudo pacman -Syu
+
+# reminder
+echo 'remember to:
+
+git clone https://github.com/enolgor/ungoogled-chromium-extension-installer
+'
