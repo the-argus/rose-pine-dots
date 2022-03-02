@@ -39,7 +39,16 @@ sudo pacman -Syu
 sudo pacman -S $(cat paclist)
 
 # reminder
-echo 'remember to:
+echo 'reminders for myself:
 
-git clone https://github.com/enolgor/ungoogled-chromium-extension-installer
+- download ssh keys and install em in .ssh
+
+- git clone https://github.com/enolgor/ungoogled-chromium-extension-installer
+  and install
+
+- start firefox and move userchrome to new profile
+
+- grab arkenfox user.js and my overrides from git@github.com:the-argus/functional-dots
+
+- get eduroam and stuff from mediafire
 '
