@@ -35,6 +35,9 @@ SigLevel = Required TrustAll
 Server = https://download.opensuse.org/repositories/home:/ungoogled_chromium/Arch/$arch' | sudo tee --append /etc/pacman.conf
 sudo pacman -Syu
 
+# install all my packages
+sudo pacman -S $(cat paclist)
+
 # reminder
 echo 'remember to:
 
