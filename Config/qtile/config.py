@@ -35,12 +35,30 @@ from libqtile.lazy import lazy
 
 from color import colors
 from font import font
-from layouts import custom_layouts
+from layouts import custom_layouts, floating
 from bar import my_bar
 
 mod = "mod4"
 #terminal = guess_terminal()
 terminal = "alacritty"
+
+float_types = [
+        "dialog"
+    ]
+
+float_names = [
+        "Calculator",
+        "Bluetooth Devices"
+        ]
+
+@hook.subscribe.client_new
+def float_to_front(qtile):
+    """
+    Bring all floating windows of the group to front
+    """
+    for window in qtile.currentGroup.windows:
+        if window.floating:
+            window.cmd_bring_to_front()
 
 @hook.subscribe.float_change
 @hook.subscribe.client_new
@@ -56,7 +74,7 @@ def autostart():
 @hook.subscribe.client_new
 def dialogs(window):
     """Floating dialog"""
-    if window.window.get_wm_type() == "dialog" or window.window.get_wm_transient_for():
+    if window.name in float_names or window.window.get_wm_type() in float_types or window.window.get_wm_transient_for():
         window.floating = True
 
 keys = [
@@ -99,20 +117,24 @@ keys = [
     Key([mod, "shift"], "Return", lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    
+    Key([], "XF86Calculator", lazy.spawn("gnome-calculator"), desc="Open calculator"), 
 
     # scripts
     Key([mod], "space", lazy.spawn("sh " + os.path.expanduser("~/.scripts/rofi-launchpad.sh")), desc="Rofi"), 
     Key([mod], "p", lazy.spawn("sh " + os.path.expanduser("~/.scripts/rofi-powermenu.sh")), desc="Powermenu"),
 
-    Key([mod], "u", lazy.spawn("sh " + os.path.expanduser("~/.scripts/sound/volume-mute.sh")), desc="Mute volume"),
-    Key([mod], "n", lazy.spawn("sh " + os.path.expanduser("~/.scripts/sound/volume-down.sh")), desc="Lower volume"),
-    Key([mod], "m", lazy.spawn("sh " + os.path.expanduser("~/.scripts/sound/volume-up.sh")), desc="Raise volume"),
+    Key([], "XF86AudioMute", lazy.spawn("sh " + os.path.expanduser("~/.scripts/sound/volume-mute.sh")), desc="Mute volume"),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("sh " + os.path.expanduser("~/.scripts/sound/volume-down.sh")), desc="Lower volume"),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("sh " + os.path.expanduser("~/.scripts/sound/volume-up.sh")), desc="Raise volume"),
 
-#    Key([], "XF86MonBrightnessUp", lazy.spawn("sh " + os.path.expanduser("~/.scripts/backlight/increase.sh")), desc="Increase brightness"),
-#    Key([], "XF86MonBrightnessDown", lazy.spawn("sh " + os.path.expanduser("~/.scripts/backlight/decrease.sh")), desc="Decrease brightness"),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("sh " + os.path.expanduser("~/.scripts/backlight/increase.sh")), desc="Increase brightness"),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("sh " + os.path.expanduser("~/.scripts/backlight/decrease.sh")), desc="Decrease brightness"),
 
     Key([], "Print", lazy.spawn("sh " + os.path.expanduser("~/.scripts/take-screenshot.sh")), desc="Take a screenshot"),
 
+    Key([mod], "c", lazy.spawn("clipcat-menu"), desc="Open clipboard manager"),
+    
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
     Key([mod, "shift"], "space", lazy.window.toggle_floating(), desc="Toggle floating"),
 
@@ -158,6 +180,7 @@ for i in groups:
     ])
 
 layouts = custom_layouts
+floating_layout = floating
 
 widget_defaults = dict(
     **font["clear"],

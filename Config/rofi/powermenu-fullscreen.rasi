@@ -24,10 +24,12 @@ configuration {
 
 window {
     transparency:                   "real";
-    location:                       north west;
-	width:			    420px;
-    x-offset:                       6px;
-    y-offset:                       50px;
+//    location:                       north west;
+//	width:			    420px;
+//    x-offset:                       6px;
+//    y-offset:                       50px;
+    fullscreen:			    true;
+    padding:			    42% 35% 42% 35%;
 }
 
 prompt {

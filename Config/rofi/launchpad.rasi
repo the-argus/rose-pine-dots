@@ -10,11 +10,12 @@
 configuration {
 	font:							"FiraCode Nerd Font Mono Bold 10";
     show-icons:                     true;
-	icon-theme: 					"Papirus";
+	icon-theme: 					"rose-pine-icons";
     display-drun: 					"";
     drun-display-format:            "{name}";
     disable-history:                false;
 	sidebar-mode: 					false;
+	padding:			0% 0% 0% 0%;
 }
 
 * {
@@ -38,10 +39,10 @@ window {
 
 prompt {
     enabled: 						true;
-	padding: 						-0.00% 1% 0% -0.5%;
+	padding: 						-0.5% 0.7% -0.9% 0%;
 	background-color: 				@background-alt;
 	text-color: 					@foreground;
-	font:							"FantasqueSansMono Nerd Font 12";
+	font:							"FantasqueSansMono Nerd Font 22";
 }
 
 entry {
@@ -51,7 +52,7 @@ entry {
     expand:                         true;
     horizontal-align:               0;
     placeholder:                    "Search";
-    padding:                        0% 0% 0% 0%;
+    padding:                        0.5% 0% 0% 0%;
     blink:                          true;
 }
 

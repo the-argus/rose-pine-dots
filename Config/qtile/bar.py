@@ -52,7 +52,12 @@ windowname = [widget.WindowName, {
             }
         ]
 
-systray = [widget.Systray, {"background": colors["orange"], "foreground": colors["black"]}]
+systray = [widget.Systray, {
+        "background": colors["orange"],
+        "foreground": colors["black"],
+        "theme_path": "rose-pine-gtk",
+        }
+    ]
 
 spacer_small = [ widget.Spacer, {
         "length" : 5,
@@ -76,10 +81,10 @@ logo_image = [ widget.Image, {
 logo = [widget.TextBox, {
                 # text="  ",
                 "font" : font["clear"]["family"],
-                "padding" : font["clear"]["padding"],
-                "fontsize" : font["clear"]["fontsize"],
-                #"text": "  ",
-                "text": " Σ",
+                "padding" : -font["clear"]["padding"]*5,
+                "fontsize" : font["clear"]["fontsize"]*1.6,
+                "text": "  ",
+                #"text": " Σ",
                 "background": colors["magenta"],
                 "foreground": colors["bg"],
                 "mouse_callbacks":{
@@ -110,7 +115,7 @@ disk = [widget.DF, {
 net = [widget.Net, {
                 **fontinfo,
                 "format": "\u2193 {down} \u2191 {up}",
-                "interface": "eth0",
+                "interface": "wlp0s20f3",
                 "update_interval": 3,
                 "background": colors["pink"]
             }
@@ -126,15 +131,17 @@ mem = [widget.Memory, {
 
 batt = [widget.Battery, {
                 **fontinfo,
+                "background": colors["magenta"],
+                "foreground": colors["bg"],
                 "low_foreground": colors["red"],
                 "low_background": None,
                 "low_percentage": 0.30,
-                "charge_char": "++",
-                "discharge_char": "--",
+                "charge_char": "",
+                "discharge_char": "",
                 "full_char": "",
                 "empty_char": "X",
                 "unknown_char": "?",
-                "format": " : {char}{percent:2.0%}",
+                "format": "  {char} {percent:2.0%}",
                 "show_short_text": False,
             }
         ]
@@ -162,11 +169,12 @@ time = [widget.Clock, {
 def widgetlist():
     return [
         spacer_small,
-        logo_image,
+        logo,
         groupbox,
         windowname,
         systray,
         cpu,
+        batt,
 #        disk,
         net,
         mem,
@@ -188,10 +196,10 @@ def style(widgetlist):
             #"text": " █",
             #"text": "\ue0d1 ",
             #"text": " \ue0c7",
-            #"text": "\ue0d2",
-            #"text": "\ue0be",
-            "text": "\ue0ba",
-            "fontsize": WIDTH+2,
+            #"text": "█\ue0d2",
+            "text": "\ue0be",
+            #"text": "\ue0ba",
+            "fontsize": WIDTH,
             "padding": 0
         }
 
