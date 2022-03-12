@@ -5,8 +5,8 @@ blueman
 bluez
 bluez-utils
 capitaine-cursors
+cbonsai
 cli-pride-flags
-code
 cozette-otb
 dunst
 feh
@@ -20,6 +20,7 @@ man-pages
 mpv
 neofetch
 neovim
+neovide-git
 nerd-fonts-fira-code
 nerd-fonts-victor-mono
 network-manager-applet
@@ -28,7 +29,7 @@ nitrogen
 noto-fonts-emoji
 noto-fonts-extra
 openssh
-picom-ibhagwan-git
+picom-jonaburg-fix
 pipewire-pulse
 polkit
 discord
@@ -49,6 +50,7 @@ ungoogled-chromium
 unzip
 vim
 wget
+xclip
 xfce4-clipman-plugin
 xmousepasteblock-git
 xorg-server
@@ -57,3 +59,4 @@ zathura
 zathura-pdf-poppler
 zip
 zoom
+zsh

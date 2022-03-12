@@ -55,17 +55,30 @@ sudo cp -r AllRosePineThemesIcons/rose-pine-icons /usr/share/icons
 rm -rf AllRosePineThemesGTK
 rm -rf AllRosePineThemesIcons
 
+echo "STARTING FIREFOX AND CUSTOMIZING PROFILE"
+
+echo ">> launching firefox without gui..."
+firefox --headless &
+# store most recently launched programs PID
+FIREFOX_PID = $!
+echo ">> sleeping to wait for process..."
+sleep 5
+echo ">> downloading arkenfox user.js..."
+git clone https://github.com/arkenfox/user.js userjs
+echo ">> installing arkenfox user.js..."
+cp -r userjs/* ~/.mozilla/firefox/*default-release*/
+echo ">> installing rose pine userchrome..."
+cp -r Extra/Firefox/chrome ~/.mozilla/firefox/*default-release*/
+
+# kill firefox
+kill $FIREFOX_PID
+
 # reminder
 echo 'reminders for myself:
 
 - download ssh keys and install em in .ssh
 
-- git clone https://github.com/enolgor/ungoogled-chromium-extension-installer
-  and install
-
-- start firefox and move userchrome to new profile
-
-- grab arkenfox user.js and my overrides from git@github.com:the-argus/functional-dots
+- install chromium web store
 
 - get eduroam and stuff from mediafire
 '
