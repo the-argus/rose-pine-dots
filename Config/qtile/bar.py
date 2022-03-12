@@ -15,7 +15,6 @@ fontinfo = dict(
 
 DEFAULT_FG = colors["fg"]
 DEFAULT_BG = colors["bg"]
-BAR_SPACE = 20
 WIDTH=34
 
 def launcher(qtile):
@@ -45,7 +44,9 @@ groupbox = [widget.GroupBox, {
         ]
 
 windowname = [widget.WindowName, {
-                **fontinfo,
+                "font": "VictorMono Nerd Font SemiBold Italic",
+                "fontsize": 16,
+                "padding": 3,
                 "format": '{name}',
                 "background": colors["fg_gutter"],
                 "center_aligned": True
@@ -61,7 +62,7 @@ systray = [widget.Systray, {
 
 spacer_small = [ widget.Spacer, {
         "length" : 5,
-        # these values is used by style func, not qtile
+        # these values are used by style func, not qtile
         "is_spacer": True,
         "inheirit": True,
         "use_separator": False
@@ -81,9 +82,9 @@ logo_image = [ widget.Image, {
 logo = [widget.TextBox, {
                 # text="  ",
                 "font" : font["clear"]["family"],
-                "padding" : -font["clear"]["padding"]*5,
+                "padding" : -2,
                 "fontsize" : font["clear"]["fontsize"]*1.6,
-                "text": "  ",
+                "text": " ",
                 #"text": " Σ",
                 "background": colors["magenta"],
                 "foreground": colors["bg"],
@@ -190,17 +191,10 @@ def style(widgetlist):
     
     for index, wid in enumerate(widgetlist): 
         end_sep = {
-            #"text": "\ue0ce",
-            #"text": " ",
-            #"text": "░▒▓",
-            #"text": " █",
-            #"text": "\ue0d1 ",
-            #"text": " \ue0c7",
-            #"text": "█\ue0d2",
-            "text": "\ue0be",
-            #"text": "\ue0ba",
+            "font": "Iosevka Nerd Font",
+            "text": " ",
             "fontsize": WIDTH,
-            "padding": 0
+            "padding": -1
         }
 
         if index < len(widgetlist)-1:
@@ -228,5 +222,6 @@ def my_bar():
         foreground=DEFAULT_FG,
         background=DEFAULT_BG,
         opacity=1.0,
-        margin=[MARGIN, MARGIN, MARGIN-BORDER_WIDTH, MARGIN],
+        margin=[MARGIN, MARGIN, BORDER_WIDTH, MARGIN],
+
     )

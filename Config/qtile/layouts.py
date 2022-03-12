@@ -4,7 +4,7 @@ from libqtile.config import Match
 from custom_layouts import CustomTile
 
 BORDER_WIDTH = 2
-MARGIN = 6
+MARGIN = 9
 SMART_GAPS = False
 
 WINDOW_MARGIN = MARGIN #int(MARGIN/2)
@@ -35,7 +35,14 @@ tile = layout.Tile(
     margin=WINDOW_MARGIN,
     margin_on_single=not SMART_GAPS,
     border_focus=ACTIVE_COLOR,
-    border_normal=INACTIVE_COLOR
+    border_normal=INACTIVE_COLOR,
+    expand=True,
+    border_on_single=True,
+    ratio=0.5,
+    ratio_increment=0.01,
+    shift_windows=True,
+    master_length=1,
+    add_after_last=True
 )
 
 bsp = layout.Bsp(
@@ -64,8 +71,8 @@ monadtall = layout.MonadTall(
 )
 
 custom_layouts = [
-    bsp,
     tile,
+    bsp,
     monadwide,
     monadtall
 ]

@@ -5,8 +5,8 @@ file containing a selection of possible sets of fonts
 
 # singular fonts
 victormono = {
-    "family" : "VictorMono Nerd Font",
-    "fontsize" : 14,
+    "family" : "VictorMono Nerd Font Semibold",
+    "fontsize" : 16,
     "padding" : 3
 }
 

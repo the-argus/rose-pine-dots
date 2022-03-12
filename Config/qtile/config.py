@@ -51,14 +51,14 @@ float_names = [
         "Bluetooth Devices"
         ]
 
-@hook.subscribe.client_new
-def float_to_front(qtile):
-    """
-    Bring all floating windows of the group to front
-    """
-    for window in qtile.currentGroup.windows:
-        if window.floating:
-            window.cmd_bring_to_front()
+#@hook.subscribe.client_new
+#def float_to_front(qtile):
+#    """
+#    Bring all floating windows of the group to front
+#    """
+#    for window in qtile.currentGroup.windows:
+#        if window.floating:
+#            window.cmd_bring_to_front()
 
 @hook.subscribe.float_change
 @hook.subscribe.client_new
@@ -149,19 +149,23 @@ keys = [
 #        desc="Spawn a command using a prompt widget"),
 ]
 
-groups = [
-    Group("1", label=""),
-    Group("2", label=""),
-    Group(
-        "3",
-        label="",
-        matches=[
-            Match(wm_class=["zoom"]),
-        ],
-    ),
-    Group("4", label=""),
-    Group("5", label="")
-]
+#groups = [ Group(f"{i+1}", label="♥") for i in range(5)]
+groups = [ Group(f"{i+1}", label="") for i in range(5)]
+
+#  groups = [
+    #  Group("1", label=""),
+    #  Group("2", label=""),
+    #  Group("3", label=""),
+    #  #  Group(
+        #  #  "3",
+        #  #  label="",
+        #  #  matches=[
+            #  #  Match(wm_class=["zoom"]),
+        #  #  ],
+    #  #  ),
+    #  Group("4", label=""),
+    #  Group("5", label="")
+#  ]
 
 
 for i in groups:
