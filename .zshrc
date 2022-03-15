@@ -8,11 +8,17 @@ bindkey -v
 # End of lines configured by zsh-newuser-install
 plugins=(git gpg-agent ssh-agent)
 
-source ~/.aliases
+#bindkey '^A' beginning-of-line
+#bindkey '^E' end-of-line
 
-eval "$(starship init zsh)"
+source ~/.aliases
 
 export EDITOR=nvim
 export SUDO_EDITOR='/usr/bin/nvim'
 
+# requires AUR zsh-autocomplete-git
+source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# requires zsh-syntax-highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+eval "$(starship init zsh)"

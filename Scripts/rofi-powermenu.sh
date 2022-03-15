@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # rofi themes originally by:
 ## Author  : Aditya Shakya
@@ -6,35 +6,29 @@
 ## Github  : @adi1090x
 ## Twitter : @adi1090x
 
-rofi_command="rofi -theme $HOME/.config/rofi/powermenu.rasi"
+rofi_command="rofi -theme $HOME/.config/rofi/powermenu-fullscreen.rasi"
 
 uptime=$(uptime -p | sed -e 's/up //g')
 cpu=$($HOME/.config/rofi/usedcpu)
 memory=$($HOME/.config/rofi/usedram)
 
 # Options
-shutdown=""
-reboot=""
-lock=""
-suspend=""
-logout=""
+shutdown=$(echo -e "\uF204")
+reboot=$(echo -e "\uF301")
+lock=$(echo -e "\uF2A8")
+suspend=$(echo -e "\uF2B2")
 
 # Confirmation
-confirm_exit() {
+function confirm_exit() {
 	rofi -dmenu\
 		-i\
 		-no-fixed-num-lines\
 		-p "Are You Sure? : "\
-		-theme $HOME/.config/rofi/applets/styles/confirm.rasi
-}
-
-# Message
-msg() {
-	rofi -theme "$HOME/.config/rofi/applets/styles/message.rasi" -e "Available Options  -  yes / y / no / n"
+		-theme $HOME/.config/rofi/confirm.rasi
 }
 
 # Variable passed to rofi
-options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
+options="$shutdown\n$reboot\n$lock\n$suspend"
 
 chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 2)"
 
@@ -43,55 +37,23 @@ case $chosen in
 		ans=$(confirm_exit &)
 		if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
 			systemctl poweroff
-		elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
-			exit 0
         else
-			msg
+			exit 0
         fi
         ;;
     $reboot)
 		ans=$(confirm_exit &)
 		if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
 			systemctl reboot
-		elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
-			exit 0
         else
-			msg
+			exit 0
         fi
         ;;
     $lock)
-		if [[ -f /usr/bin/i3lock ]]; then
-			i3lock
-		elif [[ -f /usr/bin/betterlockscreen ]]; then
-			betterlockscreen -l
-		fi
+            $HOME/.scripts/lock.sh
         ;;
     $suspend)
-		ans=$(confirm_exit &)
-		if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
-			mpc -q pause
-			amixer set Master mute
+            pactl set-sink-mute @DEFAULT_SINK@ on
 			systemctl suspend
-		elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
-			exit 0
-        else
-			msg
-        fi
-        ;;
-    $logout)
-		ans=$(confirm_exit &)
-		if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
-			if [[ "$DESKTOP_SESSION" == "Openbox" ]]; then
-				openbox --exit
-			elif [[ "$DESKTOP_SESSION" == "bspwm" ]]; then
-				bspc quit
-			elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
-				i3-msg exit
-			fi
-		elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
-			exit 0
-        else
-			msg
-        fi
         ;;
 esac

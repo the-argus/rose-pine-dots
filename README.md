@@ -3,13 +3,8 @@ qtile dots for my laptop, using the rosé pine color scheme
 
 # previews
 
-![Preview](Screenshots/screenshot_2022-01-12_01:16:46.png)
-![Preview](Screenshots/screenshot_2022-01-12_01:26:31.png)
-![Preview](Screenshots/screenshot_2022-01-20_14:19:49.png)
-![Preview](Screenshots/screenshot_2022-01-21_17:51:23.png)
-![Preview](Screenshots/screenshot_2022-01-21_17:51:38.png)
-![Preview](Screenshots/screenshot_2022-01-21_17:51:49.png)
-![Preview](Screenshots/screenshot_2022-01-21_17:52:34.png)
+![Preview](Screenshots/new-ranger.png)
+![Preview](Screenshots/new-neofetch.png)
 
 # packages
 

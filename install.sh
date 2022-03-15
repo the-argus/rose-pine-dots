@@ -75,11 +75,16 @@ FIREFOX_PID = $!
 echo ">> sleeping to wait for process..."
 sleep 5
 echo ">> downloading arkenfox user.js..."
-git clone https://github.com/arkenfox/user.js userjs
+git clone https://github.com/arkenfox/user.js $SCRIPT_DIR/userjs
 echo ">> installing arkenfox user.js..."
-cp -r userjs/* ~/.mozilla/firefox/*default-release*/
+FDIR=~/.mozilla/firefox/*default-release*/
+cp -r $SCRIPT_DIR/userjs/* $FDIR
+echo ">> installing my user overrides..."
+cp $SCRIPT_DIR/Extra/Firefox/user-overrides.js $FDIR
+echo ">> appending user settings..."
+$FDIR/updater.sh
 echo ">> installing rose pine userchrome..."
-cp -r Extra/Firefox/chrome ~/.mozilla/firefox/*default-release*/
+cp -r $SCRIPT_DIR/Extra/Firefox/chrome $FDIR
 
 # kill firefox
 kill $FIREFOX_PID
