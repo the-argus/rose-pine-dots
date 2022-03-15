@@ -177,7 +177,7 @@ def widgetlist():
         cpu,
         batt,
 #        disk,
-        net,
+#        net,
         mem,
 #        batt,
         layout,

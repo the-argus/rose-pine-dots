@@ -89,6 +89,10 @@ cp -r $SCRIPT_DIR/Extra/Firefox/chrome $FDIR
 # kill firefox
 kill $FIREFOX_PID
 
+echo ">> installing dribbblish theme for spotify"
+spicetify backup
+$SCRIPT_DIR/Scripts/spicetify/dribbblish/install.sh
+
 # reminder
 echo 'reminders for myself:
 

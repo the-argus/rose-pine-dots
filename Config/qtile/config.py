@@ -48,7 +48,8 @@ float_types = [
 
 float_names = [
         "Calculator",
-        "Bluetooth Devices"
+        "Bluetooth Devices",
+        "Network Connections"
         ]
 
 #@hook.subscribe.client_new
@@ -59,6 +60,11 @@ float_names = [
 #    for window in qtile.currentGroup.windows:
 #        if window.floating:
 #            window.cmd_bring_to_front()
+
+@hook.subscribe.client_new
+def browser(c):
+    if c.window.get_wm_class() == ('chromium', 'Chromium'):
+       c.togroup(c.qtile.current_group.name)
 
 @hook.subscribe.float_change
 @hook.subscribe.client_new

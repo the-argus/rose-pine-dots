@@ -16,3 +16,9 @@ xmousepasteblock &
 
 # start picom
 picom --config ~/.config/qtile/config/picom.conf &
+
+
+# qtile-specific configurations
+ALACRITTY=$HOME/.config/alacritty/alacritty.yml
+rm $ALACRITTY
+ln $HOME/.config/qtile/config/alacritty.yml $ALACRITTY

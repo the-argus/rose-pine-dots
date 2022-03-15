@@ -7,6 +7,8 @@
 # Change 'recolor' and 'recolor-keephue' to true to change
 # the document colors for a more uniform viewing experience.
 
+set selection-clipboard clipboard
+
 set default-bg                  "#191724"
 set default-fg                  "#e0def4"
 
@@ -38,4 +40,4 @@ set recolor-lightcolor          "#191724"
 set recolor-darkcolor           "#e0def4"
 
 set recolor                     "true"
-set recolor-keephue             "false"
+set recolor-keephue             "true"
