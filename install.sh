@@ -81,6 +81,4 @@ echo 'reminders for myself:
 - install chromium web store
 
 - get eduroam and stuff from mediafire
-
-- append mimeapps [Default Applications] to current ~/.config/mimeapps.list
 '
