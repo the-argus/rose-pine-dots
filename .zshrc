@@ -16,6 +16,15 @@ source ~/.aliases
 export EDITOR=nvim
 export SUDO_EDITOR='/usr/bin/nvim'
 
+# minimum number of characters to type before autocomplete
+zstyle ':autocomplete:*' min-input 1
+# only insert up to common characters
+zstyle ':autocomplete:*' insert-unambiguous yes
+# dont move prompt up to make room for autocomplete very much
+zstyle ':autocomplete:*' list-lines 4
+# tab multiple times to move through menu
+zstyle ':autocomplete:*' widget-style menu-select
+
 # requires AUR zsh-autocomplete-git
 source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 # requires zsh-syntax-highlighting
