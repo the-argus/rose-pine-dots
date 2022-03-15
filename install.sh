@@ -79,6 +79,7 @@ git clone https://github.com/arkenfox/user.js $SCRIPT_DIR/userjs
 echo ">> installing arkenfox user.js..."
 FDIR=~/.mozilla/firefox/*default-release*/
 cp -r $SCRIPT_DIR/userjs/* $FDIR
+rm -rf $SCRIPT_DIR/userjs
 echo ">> installing my user overrides..."
 cp $SCRIPT_DIR/Extra/Firefox/user-overrides.js $FDIR
 echo ">> appending user settings..."
