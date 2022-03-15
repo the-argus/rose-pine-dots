@@ -1,5 +1,7 @@
 #!/bin/bash
 
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 # locations
 SCRIPTS=$HOME/.scripts
 CONFIG=$HOME/.config
@@ -19,12 +21,12 @@ mkdir -p $ICONS
 
 # interactively copy this repo's contents
 
-cp -ri Scripts/* $SCRIPTS
-cp -ri Config/* $CONFIG
-cp -ri Wallpaper/* $WALLPAPER
-cp -ri Screenshots/* $SCREENSHOTS
-cp -ri Local/* $LOCAL
-cp -ri Icons/* $ICONS
+cp -ri $SCRIPT_DIR/Scripts/* $SCRIPTS
+cp -ri $SCRIPT_DIR/Config/* $CONFIG
+cp -ri $SCRIPT_DIR/Wallpaper/* $WALLPAPER
+cp -ri $SCRIPT_DIR/Screenshots/* $SCREENSHOTS
+cp -ri $SCRIPT_DIR/Local/* $LOCAL
+cp -ri $SCRIPT_DIR/Icons/* $ICONS
 
 echo "COPYING UNGOOGLED CHROMIUM INFO TO ARCH PACMAN.CONF"
 
@@ -35,10 +37,19 @@ SigLevel = Required TrustAll
 Server = https://download.opensuse.org/repositories/home:/ungoogled_chromium/Arch/$arch' | sudo tee --append /etc/pacman.conf
 sudo pacman -Syu
 
+echo "INSTALLING YAY"
+git clone https://aur.archlinux.org/yay.git
+cd $SCRIPT_DIR/yay
+sudo pacman -S go
+makepkg
+sudo pacman -U *.zst
+sudo pacman -Rsn go
+cd $SCRIPT_DIR
+rm -rf $SCRIPT_DIR/yay
+
 # install all my packages
 echo "INSTALLING ALL SOFTWARE"
-sudo pacman -S $(cat paclist)
-
+yay -S $(cat paclist)
 
 echo "INSTALLING ROSE-PINE-GTK"
 wget https://github.com/rose-pine/gtk/releases/download/v2.0.0/AllRosePineThemesGTK.tar.gz
