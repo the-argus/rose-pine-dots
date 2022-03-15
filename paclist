@@ -22,6 +22,7 @@ network-manager-applet
 networkmanager
 nitrogen
 openssh
+perl-file-mimeinfo
 picom-jonaburg-fix
 pipewire-pulse
 python-pip
