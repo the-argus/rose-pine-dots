@@ -93,6 +93,9 @@ echo ">> installing dribbblish theme for spotify"
 spicetify backup
 $SCRIPT_DIR/Scripts/spicetify/dribbblish/install.sh
 
+echo ">> setting zathura and md2pdf as default markdown viewer"
+xdg-mime default markdown.desktop text/markdown
+
 # reminder
 echo 'reminders for myself:
 
