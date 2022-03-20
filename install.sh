@@ -49,7 +49,8 @@ rm -rf $SCRIPT_DIR/yay
 
 # install all my packages
 echo "INSTALLING ALL SOFTWARE"
-yay -S $(cat paclist)
+sudo pacman -S $(cat paclist)
+yay -S $(cat yaylist)
 
 echo "INSTALLING ROSE-PINE-GTK"
 wget https://github.com/rose-pine/gtk/releases/download/v2.0.0/AllRosePineThemesGTK.tar.gz
@@ -91,6 +92,9 @@ cp -r $SCRIPT_DIR/Extra/Firefox/chrome $FDIR
 kill $FIREFOX_PID
 
 echo ">> installing dribbblish theme for spotify"
+sudo chmod a+wr /opt/spotify
+sudo chmod a+wr /opt/spotify/Apps -R
+
 spicetify backup
 $SCRIPT_DIR/Scripts/spicetify/dribbblish/install.sh
 
@@ -100,7 +104,8 @@ xdg-mime default markdown.desktop text/markdown
 # reminder
 echo 'reminders for myself:
 
-- download ssh keys and install em in .ssh
+- install ssh keys, set directory to chmod 700, private key to 600, and
+  pub key to 644
 
 - install chromium web store
 
