@@ -106,8 +106,4 @@ echo 'reminders for myself:
 
 - install ssh keys, set directory to chmod 700, private key to 600, and
   pub key to 644
-
-- install chromium web store
-
-- get eduroam and stuff from mediafire
 '
