@@ -1,0 +1,37 @@
+#!/bin/bash
+
+function open () {
+	xdg-open "$@">/dev/null 2>&1
+}
+
+function ls () { command ls --color=auto --group-directories-first "$@"; }
+
+function lsl () {
+	ls -la --color=always $1 | command grep "^d" && ls -la $1 | command grep -v "^d"
+}
+
+function diff () { command diff --color=auto "$@"; }
+
+function grep () { command grep "$@" --color=always; }
+
+function ip () { command ip -color=auto "$@"; }
+
+function pc () { sudo pacman --color always "$@"; }
+
+function pacman () { command pacman --color always "$@"; }
+
+duk ()
+{
+   sudo du -k "$@" | sort -n
+}
+
+function ytd () { youtube-dl -f bestvideo+bestaudio --merge-output-format mkv --all-subs --cookies ~/.scripts/youtube.com_cookies.txt "$1"; }
+
+alias matrix="tmatrix -c default -C yellow -s 60 -f 0.2,0.3 -g 10,20 -l 1,50 -t \"hello, argus.\""
+alias vim="nvim"
+alias cageff="cage \"/bin/firefox -p Unconfigured\""
+alias lvim="$HOME/.local/bin/lvim"
+alias awesomedoc="firefox /usr/share/doc/awesome/doc/index.html & disown"
+alias batt="cat /sys/class/power_supply/BAT0/capacity"
+alias nf="neofetch"
+alias fm="ranger"
