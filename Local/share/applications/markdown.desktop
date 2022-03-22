@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Open Markdown
+Comment=Opens markdown file in zathura.
+Icon=utilities-terminal
+Terminal=false
+Exec=~/.scripts/markdown.sh %F
+MimeType=text/markdown;
+Keywords=Zathura,Markdown,PDF,Reader
+NoDisplay=true

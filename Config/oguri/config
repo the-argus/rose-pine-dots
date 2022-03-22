@@ -1,0 +1,5 @@
+[output *]
+image=~/.wallpaper/animated/cherry-blossom.gif
+filter=nearest
+scaling-mode=fill
+anchor=center
