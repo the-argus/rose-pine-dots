@@ -91,11 +91,24 @@ cp -r $SCRIPT_DIR/Extra/Firefox/chrome $FDIR
 # kill firefox
 kill $FIREFOX_PID
 
-echo ">> installing dribbblish theme for spotify"
+echo ">> installing spicetify..."
 sudo chmod a+wr /opt/spotify
 sudo chmod a+wr /opt/spotify/Apps -R
 
 spicetify backup
+BACK=$(pwd)
+SC="$(dirname "$(spicetify -c)")"
+cd $SC
+cd CustomApps
+echo ">> installing spicetify marketplace"
+git clone https://github.com/spicetify/spicetify-marketplace
+spicetify config custom_apps spicetify-marketplace
+cd ../Themes
+git clone https://github.com/spicetify/spicetify-themes
+cp spicetify-themes/* . -r
+rmdir spicetify-themes
+cd $BACK
+echo ">> installing dribbblish theme for spotify"
 $SCRIPT_DIR/Scripts/spicetify/dribbblish/install.sh
 
 echo ">> setting zathura and md2pdf as default markdown viewer"
