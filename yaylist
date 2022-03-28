@@ -1,4 +1,3 @@
-backlight_control
 cbonsai
 cli-pride-flags
 i3lock-fancy-git
@@ -8,7 +7,9 @@ nerd-fonts-noto-sans-mono
 nerd-fonts-victor-mono
 picom-jonaburg-fix
 python-ueberzug-git
+openrazer-meta
 ranger-git
+razergenie
 spicetify-cli
 spotify
 ttf-font-icons

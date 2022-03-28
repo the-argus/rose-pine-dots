@@ -1,1 +1,1 @@
-rofi -no-lazy-grab -show drun -modi drun -theme "$HOME/.config/rofi/launchpad.rasi"
+rofi -no-lazy-grab -show drun -matching fuzzy -modi drun -theme "$HOME/.config/rofi/launchpad.rasi"
