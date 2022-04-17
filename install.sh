@@ -28,6 +28,13 @@ cp -ri $SCRIPT_DIR/Screenshots/* $SCREENSHOTS
 cp -ri $SCRIPT_DIR/Local/* $LOCAL
 cp -ri $SCRIPT_DIR/Icons/* $ICONS
 
+# misc stuff
+cp -i $SCRIPT_DIR/.zshrc ~/.zshrc
+cp -i $SCRIPT_DIR/.zprofile ~/.zprofile
+cp -i $SCRIPT_DIR/.aliases ~/.aliases
+cp -i $SCRIPT_DIR/.gtkrc-2.0 ~/.gtkrc-2.0
+
+
 echo "COPYING UNGOOGLED CHROMIUM INFO TO ARCH PACMAN.CONF"
 
 curl -s 'https://download.opensuse.org/repositories/home:/ungoogled_chromium/Arch/x86_64/home_ungoogled_chromium_Arch.key' | sudo pacman-key -a -
