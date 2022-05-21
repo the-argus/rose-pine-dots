@@ -49,7 +49,9 @@ float_types = [
 float_names = [
         "Calculator",
         "Bluetooth Devices",
-        "Network Connections"
+        "Network Connections",
+        "Color Picker",
+        "Steam Guard - Computer Authorization Required"
         ]
 
 #@hook.subscribe.client_new

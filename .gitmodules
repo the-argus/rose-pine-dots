@@ -1,0 +1,3 @@
+[submodule "Config/nvim"]
+	path = Config/nvim
+	url = https://github.com/the-argus/nvim-config

@@ -1,6 +1,6 @@
 from libqtile import qtile, widget, bar
 from libqtile.lazy import lazy
-from font import font
+from font import font, windowname
 from color import colors
 from layouts import MARGIN, BORDER_WIDTH
 import os
@@ -44,7 +44,7 @@ groupbox = [widget.GroupBox, {
         ]
 
 windowname = [widget.WindowName, {
-                "font": "VictorMono Nerd Font SemiBold Italic",
+                "font": windowname,
                 "fontsize": 16,
                 "padding": 3,
                 "format": '{name}',

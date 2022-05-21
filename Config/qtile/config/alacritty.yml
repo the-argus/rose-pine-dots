@@ -1,6 +1,6 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 window:
-  opacity: 1.0
+  opacity: 0.8
   #dimensions:
   #  columns: 0
   #  lines: 0
@@ -10,8 +10,8 @@ window:
   #  y: 0
 
   padding:
-    x: 10
-    y: 8
+    x: 8
+    y: 2
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
@@ -77,11 +77,12 @@ font:
     #   - (Windows) Consolas
     #family: Cozette
       #style: Bold
-    family: VictorMono Nerd Font
+    # family: VictorMono Nerd Font
+    family: Comic Code
     
     #family: cozette
     # The `style` can be specified to pick a specific face.
-    style: Semibold
+    # style: Semibold
 
   # Bold font face
   bold:
@@ -92,7 +93,8 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: VictorMono Nerd Font
+    # family: VictorMono Nerd Font
+    family: Comic Code
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -103,7 +105,8 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: VictorMono Nerd Font
+    # family: VictorMono Nerd Font
+    family: Comic Code
 
     # The `style` can be specified to pick a specific face.
     style: Semibold Italic
@@ -114,7 +117,8 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: VictorMono Nerd Font
+    # family: VictorMono Nerd Font
+    family: Comic Code
 
 
     # The `style` can be specified to pick a specific face.
@@ -129,7 +133,7 @@ font:
   # spacing.
   offset:
     x: 0
-    y: 1
+    y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
