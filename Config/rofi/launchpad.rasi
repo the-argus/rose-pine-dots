@@ -8,7 +8,7 @@
  */
 
 configuration {
-	font:							"FiraCode Nerd Font Mono Bold 10";
+	font:							"Comic Code Bold 14";
     show-icons:                     true;
 	icon-theme: 					"rose-pine-icons";
     display-drun: 					"";
@@ -39,10 +39,10 @@ window {
 
 prompt {
     enabled: 						true;
-	padding: 						-0.5% 0.7% -0.9% 0%;
+	padding: 						-0.4% 0.7% -0.9% 0%;
 	background-color: 				@background-alt;
 	text-color: 					@foreground;
-	font:							"FantasqueSansMono Nerd Font 22";
+	font:							"Comic Code Bold 22";
 }
 
 entry {
@@ -52,7 +52,7 @@ entry {
     expand:                         true;
     horizontal-align:               0;
     placeholder:                    "Search";
-    padding:                        0.5% 0% 0% 0%;
+    padding:                        0.0% 0% 0% 0%;
     blink:                          true;
 }
 
@@ -65,12 +65,12 @@ inputbar {
     border-radius:                  6px;
 	border-color:					@accent;
     margin:                         0% 30% 0% 30%;
-    padding:                        1%;
+    padding:                        1% 1% 1% 1%;
 }
 
 listview {
     background-color:               @background-alt;
-    columns:                        7;
+    columns:                        4;
     lines:                          4;
     spacing:                        2%;
     cycle:                          false;

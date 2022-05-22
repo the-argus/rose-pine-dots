@@ -1,7 +1,7 @@
 backlight_control
 cbonsai
-cli-pride-flags
 i3lock-fancy-git
+gnome-calculator-gtk3
 md2pdf
 nerd-fonts-fira-code
 nerd-fonts-noto-sans-mono
@@ -11,8 +11,8 @@ python-ueberzug-git
 ranger-git
 spicetify-cli
 spotify
-ttf-font-icons
 tmatrix-git
-xmousepasteblock-git
+ttf-font-icons
+unimatrix-git
 zsh-autocomplete-git
 zsh-syntax-highlighting

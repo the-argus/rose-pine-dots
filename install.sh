@@ -1,5 +1,19 @@
 #!/bin/bash
 
+echo "this script requires wget and curl to be installed"
+
+if ! command -v wget &> /dev/null
+then
+    echo "wget not installed, quitting."
+    exit
+fi
+if ! command -v curl &> /dev/null
+then
+    echo "curl not installed, quitting."
+    exit
+fi
+
+
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # locations
@@ -34,6 +48,9 @@ cp -i $SCRIPT_DIR/.zprofile ~/.zprofile
 cp -i $SCRIPT_DIR/.aliases ~/.aliases
 cp -i $SCRIPT_DIR/.gtkrc-2.0 ~/.gtkrc-2.0
 
+# copy zsh prompt
+mkdir $LOCAL/src/zsh-prompt -p
+wget https://raw.githubusercontent.com/the-argus/functional-dots/main/.local/src/zsh-prompt/minimal.zsh -O $LOCAL/src/zsh-prompt/minimal.zsh
 
 echo "COPYING UNGOOGLED CHROMIUM INFO TO ARCH PACMAN.CONF"
 
